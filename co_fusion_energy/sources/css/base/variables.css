@@ -1,0 +1,32 @@
+/* Variables */
+
+:root {
+  /* Font family */
+  --font-family-primary: 'Neue Haas Grotesk Display Pro', sans;
+
+  /* Font sizes */
+  --text-xs: 0.75rem; /* 12px */
+  --text-sm: 0.875rem; /* 14px */
+  --text-base: 1rem; /* 16px */
+  --text-lg: 1.125rem; /* 18px */
+  --text-xl: 1.25rem; /* 20px */
+  --text-2xl: 1.5rem; /* 24px */
+  --text-3xl: 1.875rem; /* 30px */
+  --text-4xl: 2.25rem; /* 36px */
+  --text-5xl: 2.5rem; /* 40px */
+  --text-6xl: 3rem; /* 48px */
+  --text-7xl: 3.5rem; /* 56px */
+  --text-8xl: 4rem; /* 64px */
+  --text-9xl: 5rem; /* 80px */
+  --text-10xl: 6rem; /* 96px */
+
+  /* Colors */
+  --color-primary-500: #EBFF68;
+
+  --color-secondary-500: #13135E;
+
+  --color-black: #000000;
+  --color-white: #FFFFFF;
+  --color-green: #01BF67;
+  --color-error: #FC489D;
+}

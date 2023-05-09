@@ -1,0 +1,6 @@
+/* Button styles */
+
+.btn-primary {
+  @apply rounded-none border-none bg-primary text-base leading-5 font-primary font-bold text-secondary py-4 mt-4 h-auto uppercase bg-no-repeat bg-[90%_center] bg-[url('./../../sources/images/img-general-rightArrow-2023.svg')] cursor-pointer ease-linear transition-all duration-150;
+  /*@apply bg-primary text-white border border-primary  hover:text-primary hover:border-primary;*/
+}

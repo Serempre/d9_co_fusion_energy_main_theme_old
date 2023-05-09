@@ -1,0 +1,154 @@
+<form{{ attributes }}>
+  {{ title_prefix }}
+  {# one column Layout #}
+  <div class="{% if fields|length < 5 %}abi-form-one-column{% else %}abi-form-two-column gap-12 grid lg:grid-cols-2{% endif %}">
+    {% for field in fields %}
+      {% if field['value'] == 'document' %}
+        <div class="flex">
+          {{ element.elements.document_type }}
+          {{ element.elements.document }}
+        </div>
+      {% elseif field['value'] == 'document_user_id'  %}
+        <div class="flex">
+          {{ element.elements.document_user_id }}
+        </div>
+      {% elseif field['value'] == 'dob'  %}
+        <div class="dob relative">
+          <label class="field-label">{{ 'Fecha de nacimiento'|t }}</label>
+          <div class="gap-2 grid grid-cols-3 date-of-birth">
+            {{ element.elements.birthday }}
+            {{ element.elements.birthmonth }}
+            {{ element.elements.birthyear }}
+          </div>
+          <div class="invalid-feedback custom-error"></div>
+        </div>
+      {% else  %}
+        {{ element.elements[field['value']] }}
+      {% endif  %}
+    {% endfor %}
+  </div>
+
+  {% if questions.mcq is not empty %}
+    {% for i, ques in questions.mcq %}
+      <div class="mcq relative">
+        <p class="mt-10 text-base text-primary field-label">{{ ques.question }}</p>
+        <ul class="radio-toolbar">
+          {% for option in ques.options %}
+          <li>
+            <input type="radio" name="mcq[items][{{ i }}]" id="mcq_{{ i }}_{{ option|lower|replace({" ": "_"}) }}" value="{{ option }}" class="mcq__input" data-qadp="form_op{{ loop.index - 1 }}" />
+            <label for="mcq_{{ i }}_{{ option|lower|replace({" ": "_"}) }}" class="mcq__label">{{ option }}</label>
+          </li>
+          {% endfor %}
+        </ul>
+        <div class="invalid-feedback"></div>
+      </div>
+    {% endfor %}
+  {% endif %}
+
+  {% if questions.open_question is not empty %}
+    {% for i, option in questions.open_question %}
+      <div class="open_question relative mt-10">
+        <label for="ques_open_{{i}}" class="ques_open__label field-label">{{ option.value }}</label>
+        <textarea name="ques_open_{{i}}" id="ques_open_{{i}}" index="{{i}}" placeholder="Respuesta" maxlength="200" class="ques_open" data-qadp="form_open_question"></textarea>
+        <div id="contador_{{i}}" class="contador">0/200</div>
+        <div class="invalid-feedback"></div>
+      </div>
+    {% endfor %}
+  {% endif %}
+
+  {% if questions.rating is not empty %}
+    {% for i, ques in questions.rating %}
+      <div class="rating relative mt-10 mb-10">
+        <p class="mt-3 text-base text-primary field-label">{{ ques.question }}</p>
+        <div class="flex justify-center" >
+          <div class="star-rating">
+            <div>
+            {% for option in ques.options %}
+              <input type="radio" name="rating[items][{{ i }}]" id="candidate_rating_{{ i }}_{{ option|lower|replace({" ": "_"}) }}" value="{{ option }}" class="star-rating__input" data-qadp="form_qualification{{ option - 1 }}" />
+              <label for="candidate_rating_{{ i }}_{{ option|lower|replace({" ": "_"}) }}" class="star-rating__label">
+                ★
+              </label>
+            {% endfor %}
+            </div>
+            <div class="star-box-text">
+              <p class="text-white lg:w-1/5 w-2/6">{{ ques.help1 }}</p>
+              <p class="text-white text-right relative lg:-left-12 lg:w-1/6 w-2/6">{{ ques.help2 }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="invalid-feedback"></div>
+      </div>
+    {% endfor %}
+  {% endif %}
+
+  <div class="hidden">
+    {{ element.elements.rating }}
+    {{ element.elements.mcq }}
+    {{ element.elements.open_question }}
+    {{ element.elements.sec_open_question }}
+  </div>
+  <div>
+    {% if complete_fields %}
+      {% for field in complete_fields %}
+        {{ element.elements[field['value']] }}
+      {% endfor %}
+    {% endif %}
+    <h3 class="font-primary font-bold text-white text-xs leading-[14.4px] tracking-[1px] text-center uppercase mb-2">
+      {{ "Términos de uso, política de privacidad y protección de datos" | t }}
+    </h3>
+    {{ element.elements.tyc }}
+    {{ element.elements.mktg }}
+  </div>
+  <div>
+    {{ element.elements.actions }}
+  </div>
+  {{ element.elements.abi_campaign }}
+  {{ element.elements.abi_interest }}
+  {{ element.elements.registro_fields }}
+  {{ element.elements.promo_code_type }}
+  {{ element.elements.code_modal_delivered }}
+  {{ element.elements.error_message_codes }}
+  {{ element.form_token }}
+  {{ element.form_build_id }}
+  {{ element.form_id }}
+  {{ title_suffix }}
+</form>
+
+<div id="registro-success-modal" class="hidden bottom-0 z-50 fixed h-full left-0 right-0 text-center top-0">
+  <input id="modal" class="css-modal-check" type="checkbox" checked />
+  <div class="css-modal">
+    <a href="{{ modal_cta }}">
+      <label class="close">
+        <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M23.7897 4.5987C24.7268 3.66164 24.7268 2.13986 23.7897 1.2028C22.8526 0.265735 21.3309 0.265735 20.3938 1.2028L12.5 9.10409L4.5987 1.21029C3.66164 0.273231 2.13986 0.273231 1.2028 1.21029C0.265735 2.14735 0.265735 3.66914 1.2028 4.6062L9.10409 12.5L1.21029 20.4013C0.273231 21.3384 0.273231 22.8601 1.21029 23.7972C2.14735 24.7343 3.66914 24.7343 4.6062 23.7972L12.5 15.8959L20.4013 23.7897C21.3384 24.7268 22.8601 24.7268 23.7972 23.7897C24.7343 22.8526 24.7343 21.3309 23.7972 20.3938L15.8959 12.5L23.7897 4.5987Z" fill="#EBFF68"/>
+        </svg>
+      </label>
+    </a>
+    <svg class="mx-auto mb-2" width="140" height="141" viewBox="0 0 140 141" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M70 0.5C108.633 0.5 140 31.867 140 70.5C140 109.133 108.633 140.5 70 140.5C31.367 140.5 0 109.133 0 70.5C0 31.867 31.367 0.5 70 0.5Z" fill="#EBFF68"/>
+      <path d="M42.3256 68.5816L62.0476 88.4072L97.6744 52.5933" stroke="#282828" stroke-width="14.6512" stroke-linecap="round"/>
+    </svg>
+    <h2 class="font-bold leading-8 mb-3">{{ '¡Felicitaciones!'|t }}<br/><span class="uname font-normal">Nombre de Usuario</span></h2>
+    <p>{{ modal_description|raw }}</p>
+    {% if enable_code_delivery %}
+      <form class="flex mt-6 gencode-form">
+        <div>
+          <label class="text-grey">{{ 'Code to claim your prize'|t }}</label>
+          <input type="text" id="copy-code" name="copy-code" value="" class="text-black font-bold">
+        </div>
+        <div class="relative">
+          <label class="text-grey">{{ 'Copy'|t }}</label>
+          <input type="button" onClick="copy()">
+          <svg class="absolute h-28 left-0 m-auto right-0 top-0 mt-4" width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4.1665 12H3.33317C2.89114 12 2.46722 11.8244 2.15466 11.5118C1.8421 11.1993 1.6665 10.7754 1.6665 10.3333V2.83333C1.6665 2.39131 1.8421 1.96738 2.15466 1.65482C2.46722 1.34226 2.89114 1.16667 3.33317 1.16667H10.8332C11.2752 1.16667 11.6991 1.34226 12.0117 1.65482C12.3242 1.96738 12.4998 2.39131 12.4998 2.83333V3.66667M9.1665 7H16.6665C17.587 7 18.3332 7.74619 18.3332 8.66667V16.1667C18.3332 17.0871 17.587 17.8333 16.6665 17.8333H9.1665C8.24603 17.8333 7.49984 17.0871 7.49984 16.1667V8.66667C7.49984 7.74619 8.24603 7 9.1665 7Z" stroke="#667085" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          </input>
+        </div>
+      </form>
+    {% endif %}
+    {% if modal_cta is not empty %}
+      <a href="{{ modal_cta }}" class="btn btn-primary flex justify-center mt-10 w-full rounded-md p-2 underline-offset-0 action-registro-cta">{% if modal_cta_label is not empty %}{{ modal_cta_label }}{% else %}{{ 'CONTINUE'|t }}{% endif %}</a>
+    {% endif %}
+  </div>
+  <div id="overlay"></div>
+</div>

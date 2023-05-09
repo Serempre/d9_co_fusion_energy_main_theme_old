@@ -1,0 +1,131 @@
+/* PACO Superform styles */
+
+#main {
+  @apply max-w-full;
+}
+
+.abi-form-register-wrapper {
+  @apply p-0;
+  .abi-form-register {
+    .picture-mobile-top-image {
+      @apply hidden;
+    }
+    .form-register {
+      @apply rounded-none w-full max-w-[722px] py-14 px-9 lg:py-16 lg:px-[101px];
+      &--header-title {
+        p {
+          @apply font-primary font-bold text-primary text-6xl leading-none;
+        }
+      }
+      &--header-description {
+        @apply mt-1 mb-8;
+        p {
+          @apply font-primary font-normal text-lg leading-5;
+        }
+      }
+      form {
+        .abi-form-one-column {
+          .js-form-item {
+            @apply mb-6;
+            &.has-error {
+              @apply before:content-none;
+            }
+            .invalid-feedback {
+              @apply text-error pl-4 -bottom-4;
+            }
+          }
+          label {
+            @apply font-primary font-bold text-base leading-5 mb-1 capitalize;
+          }
+          input {
+            @apply font-primary font-bold text-base leading-5 p-4 m-0 h-auto border-2 bg-transparent placeholder:font-normal placeholder:!text-primary focus:border-primary focus:text-primary focus-visible:border-primary focus-visible:text-primary focus-visible:outline-none focus-within:!text-primary focus-within:border-primary focus-within:!bg-transparent;
+            &.error {
+              @apply border-error placeholder:!text-error;
+            }
+          }
+          .dob {
+            .date-of-birth {
+              @apply relative;
+              .js-form-type-select {
+                @apply static;
+              }
+              .nice-select {
+                @apply w-full font-primary font-bold text-base leading-5 p-4 m-0 !h-auto border-2 !bg-transparent focus:border-primary focus:text-primary focus-visible:border-primary focus-visible:text-primary focus-visible:outline-none focus-within:!text-primary focus-within:border-primary focus-within:!bg-transparent;
+                .current {
+                  @apply font-normal text-primary;
+                }
+                .option {
+                  @apply text-secondary;
+                  &.focus, &.selected {
+                    @apply bg-primary;
+                  }
+                }
+              }
+            }
+            .invalid-feedback {
+              @apply text-error left-0 bottom-2;
+            }
+          }
+        }
+        .js-form-type-checkbox {
+          @apply relative mb-2 mt-0 min-h-[16px];
+          label {
+            @apply block font-primary font-light text-xs leading-[14.4px] pl-8;
+            &::before {
+              @apply h-4 w-4;
+            }
+            &::after {
+              @apply h-4 w-4 py-[2px] px-[1px];
+            }
+            a {
+              @apply font-bold underline;
+            }
+          }
+          &.has-error {
+            @apply mb-8;
+          }
+          .invalid-feedback {
+            @apply text-error -bottom-4 !left-8;
+          }
+        }
+        .form-actions{
+          @apply mb-0;
+          .form-submit {
+            @apply rounded-none border-none bg-primary text-base leading-5 font-primary font-bold text-secondary py-4 mt-4 h-auto uppercase bg-no-repeat bg-[90%_center] bg-[url('./../../sources/images/img-general-rightArrow-2023.svg')] cursor-pointer;
+          }
+        }
+      }
+      #registro-success-modal {
+        .css-modal {
+          @apply bg-secondary rounded-none max-w-[436px] mx-auto py-28 px-[26.5px] w-[95%] lg:py-[76.5px] lg:px-16;
+          .close {
+            @apply flex justify-center items-center bg-secondary -top-14 h-[45px] w-[45px] rounded-full;
+            &::after {
+              @apply content-none;
+            }
+            &:hover {
+              path {
+                @apply fill-white;
+              }
+            }
+          }
+          h2 {
+            @apply font-primary font-black text-primary text-5xl leading-[48px];
+            span {
+              @apply font-medium text-primary text-xl leading-6;
+            }
+          }
+          p {
+            @apply font-primary font-light !text-primary text-lg leading-5;
+          }
+          .action-registro-cta {
+            @apply rounded-none bg-primary text-secondary text-base leading-5 mt-3 py-4 uppercase;
+          }
+        }
+        #overlay {
+          @apply opacity-100 bg-green;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+name: Co Fusion Energy
+type: theme
+description: Theme for Fusion Energy.
+package: Custom
+core: 8.x
+core_version_requirement: ^8 || ^9
+base theme: bootstrap_barrio
+
+libraries:
+  - co_fusion_energy/global
+regions:
+  pre_header: 'Pre header'
+  header: 'Header'
+  primary_menu: 'Primary menu'
+  content: 'Content'
+  first_footer: 'First Footer'
+  footer: 'Footer'
