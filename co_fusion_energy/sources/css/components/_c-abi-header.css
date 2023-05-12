@@ -1,0 +1,19 @@
+/* Paco header custom styles */
+
+#menu__paco {
+
+  @apply font-secondary;
+
+  .menu__items {
+    @apply invisible pointer-events-none;
+  }
+
+  .menu__paco--wrapper {
+    @apply bg-secondary;
+  }
+
+  .menu__header--toggle, .menu__login--desktop {
+    @apply invisible pointer-events-none;
+  }
+
+}

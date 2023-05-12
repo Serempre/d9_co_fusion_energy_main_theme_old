@@ -3,6 +3,7 @@
 :root {
   /* Font family */
   --font-family-primary: 'Neue Haas Grotesk Display Pro', sans;
+  --font-family-secondary: 'Inter', sans;
 
   /* Font sizes */
   --text-xs: 0.75rem; /* 12px */
@@ -22,11 +23,12 @@
 
   /* Colors */
   --color-primary-500: #EBFF68;
-
   --color-secondary-500: #13135E;
+  --color-tertiary-500: #57F7FF;
 
   --color-black: #000000;
   --color-white: #FFFFFF;
   --color-green: #01BF67;
+  --color-check: #A8FF00;
   --color-error: #FC489D;
 }

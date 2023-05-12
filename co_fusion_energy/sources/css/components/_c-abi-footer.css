@@ -1,0 +1,93 @@
+/* Paco footer custom styles */
+
+#footer__paco {
+
+  @apply font-secondary;
+
+  .paco__main {
+
+    .paco__main--description {
+      @apply hidden pointer-events-none;
+      p {
+        @apply !text-tertiary leading-[18px];
+      }
+    }
+
+    .paco__subscribe-form-container {
+      .ab-paco-subscribe-form {
+        .js-form-item-ab-paco-subscribe-email {
+          @apply hidden pointer-events-none;
+          input {
+            @apply w-full p-4 rounded-[8px] text-secondary text-[12px] leading-[14px] tracking-[0.03em] placeholder:text-secondary;
+          }
+        }
+        input[type=submit] {
+          @apply hidden pointer-events-none;
+          @apply -top-2 rounded-none font-bold font-extrabold text-secondary text-[10px] bg-primary py-[9.5px] w-[107px];
+        }
+        .js-form-type-checkbox {
+          label {
+            &::before {
+             @apply bg-none;
+            }
+             p {
+               @apply relative pl-8 -top-6;
+             }
+            &::after {
+               @apply bg-none bg-white w-6 h-6 border-[3px] border-check rounded-[4px];
+            }
+          }
+          input[type=checkbox]:checked+label::after {
+            @apply bg-[url('../../sources/images/check-icon.svg')];
+          }
+        }
+      }
+    }
+
+    .paco__main--items {
+      @apply hidden pointer-events-none;
+      .menu {
+        .menu-item {
+          a {
+            @apply text-tertiary;
+          }
+        }
+      }
+    }
+
+    .paco__main--social {
+      @apply hidden pointer-events-none;
+      .paco__main--title-social {
+        @apply text-tertiary;
+      }
+    }
+
+    .paco__main--terms {
+      .menu {
+        .menu-item {
+          @apply flex justify-center items-center;
+          a {
+            @apply text-tertiary text-[12px] leading-[14.5px] tracking-[0.03em] text-center py-4 lg:text-[10px] lg:leading-[12px];
+          }
+        }
+      }
+    }
+
+  }
+
+  .menu__paco--disclaimer-down {
+    @apply text-tertiary;
+    .menu__disclaimer-down--linkleft {
+      a {
+        @apply text-tertiary;
+      }
+    }
+  }
+
+  .paco__footer--desktop {
+    .image-container {
+      @apply flex items-center justify-center;
+    }
+  }
+
+}

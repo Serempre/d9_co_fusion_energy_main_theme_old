@@ -13,7 +13,7 @@
     .form-register {
       @apply rounded-none w-full max-w-[722px] py-14 px-9 lg:py-16 lg:px-[101px];
       &--header-title {
-        p {
+        h1 {
           @apply font-primary font-bold text-primary text-6xl leading-none;
         }
       }
@@ -126,6 +126,9 @@
           @apply opacity-100 bg-green;
         }
       }
+    }
+    .has-error {
+      @apply before:content-none;
     }
   }
 }

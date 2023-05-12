@@ -1,0 +1,71 @@
+@font-face {
+  font-family: 'Inter';
+  src: url('../../sources/fonts/Inter/Inter-Regular.eot');
+  src: url('../../sources/fonts/Inter/Inter-Regular.eot?#iefix') format('embedded-opentype'),
+  url('../../sources/fonts/Inter/Inter-Regular.woff2') format('woff2'),
+  url('../../sources/fonts/Inter/Inter-Regular.woff') format('woff'),
+  url('../../sources/fonts/Inter/Inter-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../../sources/fonts/Inter/Inter-Medium.eot');
+  src: url('../../sources/fonts/Inter/Inter-Medium.eot?#iefix') format('embedded-opentype'),
+  url('../../sources/fonts/Inter/Inter-Medium.woff2') format('woff2'),
+  url('../../sources/fonts/Inter/Inter-Medium.woff') format('woff'),
+  url('../../sources/fonts/Inter/Inter-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../../sources/fonts/Inter/Inter-SemiBold.eot');
+  src: url('../../sources/fonts/Inter/Inter-SemiBold.eot?#iefix') format('embedded-opentype'),
+  url('../../sources/fonts/Inter/Inter-SemiBold.woff2') format('woff2'),
+  url('../../sources/fonts/Inter/Inter-SemiBold.woff') format('woff'),
+  url('../../sources/fonts/Inter/Inter-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../../sources/fonts/Inter/Inter-Bold.eot');
+  src: url('../../sources/fonts/Inter/Inter-Bold.eot?#iefix') format('embedded-opentype'),
+  url('../../sources/fonts/Inter/Inter-Bold.woff2') format('woff2'),
+  url('../../sources/fonts/Inter/Inter-Bold.woff') format('woff'),
+  url('../../sources/fonts/Inter/Inter-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../../sources/fonts/Inter/Inter-ExtraBold.eot');
+  src: url('../../sources/fonts/Inter/Inter-ExtraBold.eot?#iefix') format('embedded-opentype'),
+  url('../../sources/fonts/Inter/Inter-ExtraBold.woff2') format('woff2'),
+  url('../../sources/fonts/Inter/Inter-ExtraBold.woff') format('woff'),
+  url('../../sources/fonts/Inter/Inter-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../../sources/fonts/Inter/Inter-Black.eot');
+  src: url('../../sources/fonts/Inter/Inter-Black.eot?#iefix') format('embedded-opentype'),
+  url('../../sources/fonts/Inter/Inter-Black.woff2') format('woff2'),
+  url('../../sources/fonts/Inter/Inter-Black.woff') format('woff'),
+  url('../../sources/fonts/Inter/Inter-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
