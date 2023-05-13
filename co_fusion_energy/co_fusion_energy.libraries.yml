@@ -1,5 +1,5 @@
 global:
-  version: 1.1
+  version: 1.2
   js:
     dist/js/general.bundle.js: { attributes: { preload: true }, preprocess: false, minified: true }
   dependencies:
