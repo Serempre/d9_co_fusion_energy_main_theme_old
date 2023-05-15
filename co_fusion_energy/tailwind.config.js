@@ -10,6 +10,7 @@ module.exports = {
       colors: {
         black: 'var(--color-black)',
         white: 'var(--color-white)',
+        check: 'var(--color-check)',
         green: 'var(--color-green)',
         error: 'var(--color-error)',
         primary: {
@@ -18,10 +19,17 @@ module.exports = {
         secondary: {
           DEFAULT: 'var(--color-secondary-500)',
         },
+        tertiary: {
+          DEFAULT: 'var(--color-tertiary-500)',
+        },
       },
       fontFamily: {
         primary: [
           'var(--font-family-primary)',
+          ...defaultTheme.fontFamily.sans
+        ],
+        secondary: [
+          'var(--font-family-secondary)',
           ...defaultTheme.fontFamily.sans
         ],
       },
